@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Chris Doyle"]
   s.date = "2012-04-03"
-  s.description = "TODO: longer description of your gem"
+  s.description = "...like a cat"
   s.email = "archslide@gmail.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
     "README.rdoc",
     "Rakefile",
     "VERSION",
+    "cat.gemspec",
     "lib/cat.rb",
     "test/helper.rb",
     "test/test_cat.rb"
@@ -32,7 +33,7 @@ Gem::Specification.new do |s|
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.19"
-  s.summary = "TODO: one-line summary of your gem"
+  s.summary = "Create objects in a sandbox"
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
