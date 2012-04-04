@@ -1,6 +1,65 @@
 = cat
 
-Description goes here.
+Create objects in a sandbox
+
+This project grew out of a project where I needed to create complicated object definitions and didn't
+want to write it out in classic ruby syntax (clunky and fragile). So, this gem lets you easily generate
+classes inside a sandbox and clean it out the namespace between tests.
+
+== Installation
+
+    gem install cat
+
+== Usage
+
+    require 'cat'
+
+=== Creating classes
+
+Add a single class
+
+    > Sandbox.add_class("Foo")
+    > Sandbox::Foo.new
+     => #<Sandbox::Foo:0x007ff5a2829930>
+
+Add a subclass
+
+    > Sandbox.add_class("Foo::Bar")
+    > Sandbox::Foo::Bar.new
+     => #<Sandbox::Foo::Bar:0x007ff5a281f098>
+
+Add some attributes to a class
+
+    > Sandbox.add_attributes("Foo::Bar", "id", :title)
+    > fb = Sandbox::Foo::Bar.new(id: 10, title: "I like chicken") # it adds an initialize method for you too
+    > fb.id
+     => 10
+    > fb.title
+     => "I like chicken"
+
+Add a method to a class
+
+    > Sandbox.add_method("Foo::Bar", :food, lambda{"I like liver"})
+    > fb = Sandbox::Foo::Bar.new
+    > fb.food
+     => "I like liver"
+
+Or do it with a block
+
+    > Sandbox.add_method("Foo::Bar", :food) {"Meow mix meow mix"}
+    > fb = Sandbox::Foo::Bar.new
+    > fb.food
+     => "Meow mix meow mix"
+
+Class methods work the same way
+
+    > Sandbox.add_class_method("Foo::Bar", :babar, lambda{"king of elephants"})
+    > Sandbox::Foo::Bar.babar
+     => "king of elephants"
+
+When you've cluttered your namespace beyond repair, just delete it all
+
+    > Sandbox.cleanup!  # or of course, use the alias Sandbox.scoop! :)
 
 == Contributing to cat
  
