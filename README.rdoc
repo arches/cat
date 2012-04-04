@@ -6,6 +6,8 @@ This project grew out of a project where I needed to create complicated object d
 want to write it out in classic ruby syntax (clunky and fragile). So, this gem lets you easily generate
 classes inside a sandbox and clean it out the namespace between tests.
 
+{<img src="https://secure.travis-ci.org/arches/cat.png?branch=master" alt="Build Status" />}[http://travis-ci.org/arches/cat]
+
 == Installation
 
     gem install cat
