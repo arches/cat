@@ -18,7 +18,7 @@ Jeweler::Tasks.new do |gem|
   gem.homepage = "http://github.com/arches/cat"
   gem.license = "MIT"
   gem.summary = %Q{Create objects in a sandbox}
-  gem.description = %Q{...like a cat}
+  gem.description = %Q{Create objects in a sandbox ...like a cat}
   gem.email = "archslide@gmail.com"
   gem.authors = ["Chris Doyle"]
   # dependencies defined in Gemfile
