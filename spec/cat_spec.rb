@@ -1,4 +1,4 @@
-require_relative '../lib/sandbox'
+require 'sandbox'
 
 describe Sandbox do
 
