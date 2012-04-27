@@ -49,7 +49,7 @@ describe Sandbox do
     it "adds an initialize method to set attributes with a hash" do
       Sandbox.add_class("Soap::Ivory::Powdered")
       Sandbox.add_attributes("Soap::Ivory", "id", :title)
-      ivory = Sandbox::Soap::Ivory.new(id: 10, title: "Toweling off")
+      ivory = Sandbox::Soap::Ivory.new(:id => 10, :title => "Toweling off")
 
       ivory.id.should == 10
       ivory.title.should == "Toweling off"
