@@ -52,7 +52,7 @@ module Sandbox
   def self.const_set_from_string(delimited_klasses)
     # try to const_get before set const_set to avoid "already initialized" warnings
     delimited_klasses.split("::").inject(self) do |const, klass|
-      const.constants.include?(klass.to_sym) ? const.const_get(klass) : const.const_set(klass, Class.new)
+      const.constants.collect(&:to_s).include?(klass.to_s) ? const.const_get(klass) : const.const_set(klass, Class.new)
     end
 
     @@created_classes << delimited_klasses.split("::").first
