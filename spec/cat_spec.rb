@@ -22,7 +22,7 @@ describe Sandbox do
   describe "#add_class" do
     it "creates a class namedspaced under Sandbox" do
       Sandbox.add_class("Foo")
-      Sandbox.constants.should include(:Foo)
+      Sandbox.constants.collect(&:to_s).should include("Foo")
     end
 
     describe "when you pass a double-colon delimited string" do
