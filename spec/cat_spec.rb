@@ -12,7 +12,7 @@ describe Sandbox do
       Sandbox.add_class("Foo")
       constants = Sandbox.created_classes
       Sandbox.cleanup!
-      Sandbox.created_classes.should == ["Foo"]
+      Sandbox.created_classes.collect(&:to_s).should == ["Foo"]
       constants.each do |const|
         Sandbox.constants.should_not include(const)
       end
@@ -28,8 +28,8 @@ describe Sandbox do
     describe "when you pass a double-colon delimited string" do
       it "creates nested subclasses" do
         Sandbox.add_class("Bar::Wood")
-        Sandbox.constants.should include(:Bar)
-        Sandbox::Bar.constants.should include(:Wood)
+        Sandbox.constants.collect(&:to_s).should include("Bar")
+        Sandbox::Bar.constants.collect(&:to_s).should include("Wood")
       end
     end
   end
