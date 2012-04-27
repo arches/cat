@@ -25,14 +25,14 @@ Jeweler::Tasks.new do |gem|
 end
 Jeweler::RubygemsDotOrgTasks.new
 
-require 'rake/testtask'
-Rake::TestTask.new(:test) do |test|
-  test.libs << 'lib' << 'test'
-  test.pattern = 'test/**/test_*.rb'
-  test.verbose = true
+require 'rspec/core/rake_task'
+
+desc "Run specs"
+RSpec::Core::RakeTask.new do |t|
 end
 
-task :default => :test
+
+task :default => :spec
 
 require 'rdoc/task'
 Rake::RDocTask.new do |rdoc|
