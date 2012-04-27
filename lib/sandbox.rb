@@ -13,10 +13,7 @@ module Sandbox
       attr_accessor *attrs
 
       # set up the 'initialize' method to assign the attributes
-      define_method(:initialize) do |*value_hash|
-        # hack for 1.8.7 - ideally we'd use value_hash={} in the block above and remove these next two lines
-        value_hash = (value_hash || []).first
-        value_hash ||= {}
+      define_method(:initialize) do |value_hash={}|
         attrs.each_with_index do |attr|
           instance_variable_set("@#{attr}", value_hash[attr.to_sym])
         end
