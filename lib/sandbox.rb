@@ -13,9 +13,11 @@ module Sandbox
       attr_accessor *attrs
 
       # set up the 'initialize' method to assign the attributes
-      define_method(:initialize) do |value_hash={}|
-        attrs.each_with_index do |attr|
-          instance_variable_set("@#{attr}", value_hash[attr.to_sym])
+      define_method(:initialize) do |*value_hash|
+        value_hash = value_hash.first
+        value_hash ||= {}
+        value_hash.each do |k, v|
+          instance_variable_set("@#{k.to_s}", v)
         end
       end
     end
